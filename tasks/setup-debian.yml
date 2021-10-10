@@ -25,7 +25,12 @@
     - python3-setuptools
     - python{{ python_base_version }}
     - python{{ python_base_version }}-venv
-    - wget
+
+- name: Install additional apt packages
+  become: true
+  become_user: "{{ root_user }}"
+  apt:
+    name: {{ python_additional_apt_packages }}
 
 - name: Install python{{ python_base_version }}-dev
   when: python_install_dev|bool
