@@ -7,6 +7,7 @@
     - dirmngr
 
 - name: Add deadsnakes repository
+  when: python_use_deadsnakes_repo|bool
   become: true
   become_user: "{{ root_user }}"
   apt_repository:
