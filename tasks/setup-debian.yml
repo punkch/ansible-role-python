@@ -30,7 +30,7 @@
   become: true
   become_user: "{{ root_user }}"
   apt:
-    name: {{ python_additional_apt_packages }}
+    name: "{{ python_additional_apt_packages }}"
 
 - name: Install python{{ python_base_version }}-dev
   when: python_install_dev|bool
